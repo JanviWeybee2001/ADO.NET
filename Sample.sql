@@ -14,4 +14,4 @@ alter table student drop column city, country
 
 use w3schools
 
-select * from orders
+select count(ProductID) from products
