@@ -31,5 +31,18 @@ namespace AdoDemo
                 con.Close();
             }
         }
+
+        protected void btnGetData_Click(object sender, EventArgs e)
+        {
+            string cs = "data source=JANVI-DESAI\\SQLEXPRESS; database=Sample; Integrated Security=SSPI";
+            using (SqlConnection con = new SqlConnection(cs))
+            {
+                SqlCommand cmd = new SqlCommand("Select * from employee", con);
+                con.Open();
+                employeetbl.DataSource = cmd.ExecuteReader();
+                employeetbl.DataBind();
+                con.Close();
+            }
+        }
     }
 }
